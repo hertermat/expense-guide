@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Expenses from './components/Expenses/Expenses';
 import React from 'react';
+import NewExpense from './components/NewExpense/NewExpense';
 
 function App() {
   const expenses = [
@@ -11,8 +12,12 @@ function App() {
     {id: 'e4', title: 'New Desk', amount: 450, date: new Date(2021, 5,12)}
   ];
   return (
-    <Expenses items={expenses}></Expenses>
-  
+    <div>
+      
+      <NewExpense />
+      <Expenses items={expenses}></Expenses>
+
+    </div>
   );
 }
 
