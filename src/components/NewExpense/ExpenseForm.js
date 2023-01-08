@@ -2,19 +2,35 @@ import React, {useState} from "react";
 import './ExpenseForm.css';
 
 const ExpenseForm = () => {
-
+    /*
     const [enteredTitle,setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
+     Can Be used but might run into problems depending on complexity of code*/
 
+    const [userInput, setUserInput] = useState({
+        enteredTitle: '',
+        entredAmount: '',
+        enteredDate: ''
+    });
+
+     
     const titleChangeHandler = (event) => {
-        setEnteredTitle(event.target.value);
+        //setEnteredTitle(event.target.value) <<< Can be used, but might run into some problems depending on complexity of code
+        setUserInput((prevState) => {
+            return {...prevState, enteredTitle: event.target.value};
+        });
     };
     const amountChangeHandler = (event) => {
-        setEnteredAmount(event.target.value);
+        // keeps it always up to date. always getting newest version
+        setUserInput((prevState) => {
+            return {...prevState, enteredAmount: event.target.value};
+        });
     };
     const dateChangeHandler = (event) => {
-        setEnteredDate(event.target.value);
+        setUserInput((prevState) => {
+            return {...prevState, enteredDate: event.target.value};
+        });
     };
 
     return <form>
