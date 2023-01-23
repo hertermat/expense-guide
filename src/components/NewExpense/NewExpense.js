@@ -9,6 +9,8 @@ const NewExpense = (props) => {
             ...enteredExpenseData,
             id: Math.random().toString()
         };
+        // Lifting State Up
+        //Sending it to App.js to be used later on at Expense.js
         props.onAddExpense(expenseData);
     };
 
